@@ -1,4 +1,4 @@
-const userValidation={
+const userValidationSchema={
     username:{
         notEmpty:{
             errorMessage:'username is required'
@@ -16,6 +16,12 @@ const userValidation={
         notEmpty:{
             errorMessage:'password is required'
         },
-        isLength
+        isLength:{
+            options:{
+                min:8,max:128
+            },
+            errorMessage:'password should be between 8 to 128 chars'
+        }
     }
 }
+module.exports=userValidationSchema

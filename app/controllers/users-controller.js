@@ -51,5 +51,12 @@ usersController.login=async(req,res)=>{
         res.status(500).json(error)
     }
 }
-
+usersController.account=async(req,res)=>{
+    try {
+        const user=await User.findById(req.user.id)
+        res.json(user)
+    } catch (error) {
+        res.status(500).json({errors:'something went wrong'})
+    }
+}
 module.exports=usersController
